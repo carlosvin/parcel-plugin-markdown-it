@@ -1,0 +1,19 @@
+{
+  "name": "parcel-plugin-markdown-it",
+  "version": "1.0.0",
+  "description": "Parcel plugin to generate HTML and metadata dictionary from Markdown files",
+  "main": "index.js",
+  "author": "carlosvin@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "markdown-it": "^8.4.2"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0",
+    "mocha": "^5.2.0",
+    "parcel-assert-bundle-tree": "^1.0.0"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha --timeout 50000"
+  }
+}
