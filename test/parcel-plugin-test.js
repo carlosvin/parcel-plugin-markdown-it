@@ -26,22 +26,15 @@ describe('basic', function () {
 
         // Bundle the code
         const bundle = await bundler.bundle();
-        // console.log(bundle);
         // Compare bundle to expected
-        /*assertBundleTree(bundle, {
-            name: 'index.html',
-            assets: ['index.html'],
+        assertBundleTree(bundle, {
+            name: 'index.js',
+            assets: ['index.js', 'a-test-file.md', 'b-test-file.md'],
             childBundles: [
                 {
-                    type: 'js',
-                    assets: ['index.js', 'Demo.svelte', 'Header.svelte'],
-                    childBundles: [
-                        {
-                            type: 'map'
-                        }
-                    ]
+                    type: 'map'
                 }
             ]
-        });*/
+        });
     });
 });
