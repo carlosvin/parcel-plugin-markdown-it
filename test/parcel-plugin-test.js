@@ -21,12 +21,12 @@ async function setupBundler(input, options) {
 describe('basic', function () {
     it('Should create a basic MD bundle', async function () {
         const inputFile = path.join(__dirname, './data/index.js');
-        console.log(inputFile);
+        console.log('Test input file: ', inputFile);
         const bundler = await setupBundler(inputFile);
 
         // Bundle the code
         const bundle = await bundler.bundle();
-        console.log(bundle);
+        // console.log(bundle);
         // Compare bundle to expected
         /*assertBundleTree(bundle, {
             name: 'index.html',
