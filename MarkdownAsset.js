@@ -1,29 +1,30 @@
 const { Asset } = require('parcel-bundler');
 const MarkdownIt = require('markdown-it');
-const MD = new MarkdownIt('default', {
-    html: true,
-    linkify: true,
-    typographer: true
-});
+const Meta = require('markdown-it-meta');
 
 class MarkdownAsset extends Asset {
 
     constructor(name, pkg, options) {
         super(name, pkg, options);
         this.type = 'js';
+        this.metadata = {};
+        this.md = new MarkdownIt('default', {
+            html: true,
+            linkify: true,
+            typographer: true
+        }).use(Meta);
     }
 
     async parse(markdownString) {
-        // TODO declare md a class member in constructor
-        this.html = MD.render(markdownString);
-        // this.html = md.parse(markdownString);
-        console.log('parsed asset: ', this.html);
-
+        this.html = this.md.render(markdownString);
     }
 
     generate() {
         return {
-            'js': `module.exports = { html: ${JSON.stringify(this.html)}}`
+            'js': `module.exports = { 
+                html: ${JSON.stringify(this.html)},
+                meta: ${JSON.stringify(this.md.meta)}
+            }`
         };
     }
 }
