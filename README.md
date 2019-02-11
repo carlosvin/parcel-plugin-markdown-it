@@ -1,0 +1,1 @@
+It is still a project in a early development stage, when package is uploaded to npm registry, documentation will be updated.
