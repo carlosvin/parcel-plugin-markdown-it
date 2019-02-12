@@ -17,6 +17,7 @@ class MarkdownAsset extends Asset {
 
     async parse(markdownString) {
         this.html = this.md.render(markdownString);
+        return this.html;
     }
 
     generate() {
