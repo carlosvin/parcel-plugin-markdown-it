@@ -6,7 +6,7 @@ class MarkdownAsset extends Asset {
 
     constructor(name, pkg, options) {
         super(name, pkg, options);
-        this.type = 'js';
+        this.type = 'md';
         this.metadata = {};
         this.md = new MarkdownIt('default', {
             html: true,
@@ -16,17 +16,24 @@ class MarkdownAsset extends Asset {
     }
 
     async parse(markdownString) {
+        console.log('Parsin MD');
         this.html = this.md.render(markdownString);
         return this.html;
     }
 
     generate() {
         return {
-            'js': `module.exports = { 
+            'md': {
+                html: this.html,
+                meta: this.md.meta
+            }
+        };
+        /*return {
+            'md': `module.exports = { 
                 html: ${JSON.stringify(this.html)},
                 meta: ${JSON.stringify(this.md.meta)}
             }`
-        };
+        };*/
     }
 }
 

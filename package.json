@@ -6,8 +6,8 @@
   "author": "carlosvin@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "markdown-it-meta": "^0.0.1",
-    "markdown-it": "^8.4.2"
+    "markdown-it": "^8.4.2",
+    "markdown-it-meta": "^0.0.1"
   },
   "devDependencies": {
     "mocha": "^5.2.0",

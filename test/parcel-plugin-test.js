@@ -32,6 +32,14 @@ describe('basic', function () {
             assets: ['index.js', 'a-test-file.md', 'b-test-file.md'],
             childBundles: [
                 {
+                    type: 'md',
+                    assets: ['a-test-file.md'] 
+                },
+                {
+                    type: 'md',
+                    assets: ['b-test-file.md'] 
+                },
+                {
                     type: 'map'
                 }
             ]
@@ -55,11 +63,11 @@ describe('basic', function () {
                     assets: ['index.blog'],
                     childBundles: [
                         {
-                            type: 'js',
+                            type: 'md',
                             assets: ['a-test-file.md'] 
                         },
                         {
-                            type: 'js',
+                            type: 'md',
                             assets: ['b-test-file.md'] 
                         }
                     ]
