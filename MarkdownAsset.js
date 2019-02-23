@@ -1,6 +1,7 @@
 const { Asset } = require('parcel-bundler');
 const MarkdownIt = require('markdown-it');
 const Meta = require('markdown-it-meta');
+const serializeObject = require('parcel-bundler/src/utils/serializeObject');
 
 class MarkdownAsset extends Asset {
 
@@ -23,12 +24,10 @@ class MarkdownAsset extends Asset {
     }
 
     generate() {
-        return {
-            'js': `module.exports = { 
-                html: ${JSON.stringify(this.ast.html)},
-                meta: ${JSON.stringify(this.ast.meta)}
-            }`
-        };
+        return serializeObject(
+            this.ast,
+            this.options.minify && !this.options.scopeHoist
+        );
     }
 }
 
