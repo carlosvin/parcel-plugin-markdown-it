@@ -1,15 +1,12 @@
 
-const MdTestA = require('./a-test-file.md');
+import { html, meta } from './a-test-file.md';
 
 function initComponentA() {
-    const mdTest = new MdTestA();
-    return mdTest;
+    console.log(html, meta);
 }
 
-function initComponentB() {
-    const MdTestB = require('./b-test-file.md');
-    const mdTest = new MdTestB();
-    return mdTest;
+export function initComponentB() {
+    return require('./b-test-file.md');
 }
 
 initComponentA();

@@ -13,19 +13,24 @@ class FolderAsset extends Asset {
 
     collectDependencies() {
         // analyze dependencies
-        this.ast
+        if (this.ast.files) {
+            this.ast.files
             .map(parsedPath => path.format(parsedPath))
             .forEach(filePath => this.addURLDependency(filePath));
-        this.ast.dirty = true;
+            this.ast.dirty = true;
+        }
     }
 
-    async parse(dirPath) {
-        this.dirPath = path.relative(dirPath.trim(), path.dirname(this.name));
-        console.log('Finding files in dir: ', this.dirPath);
-        return fs
-            .readdirSync(this.dirPath)
+    async parse(blogConfigString) {
+        const blogConfig = JSON.parse(blogConfigString);
+        const postsPath = path.relative(blogConfig.postsFolder.trim(), path.dirname(this.name));
+        console.log('Finding files in dir: ', postsPath);
+        const files = 
+        blogConfig.files = fs
+            .readdirSync(postsPath)
             .map(file => path.parse(file))
             .filter(parsedPath => parsedPath.ext === '.md');
+        return blogConfig;
     }
 
     generate() {
