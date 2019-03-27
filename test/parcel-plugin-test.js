@@ -61,6 +61,10 @@ describe('basic', function () {
                         {
                             type: 'js',
                             assets: ['b-test-file.md'] 
+                        },
+                        {
+                            type: 'map',
+                            assets: ['index.blog'] 
                         }
                     ]
                 }
