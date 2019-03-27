@@ -1,4 +1,4 @@
-This parcel plugin reads Markdown files and convert them to HTML using markdown-it package.
+This parcel plugin reads Markdown files and convert them to HTML using [markdown-it](https://github.com/markdown-it/markdown-it) package.
 
 This HTML is stored in a variable named `html`.
 
@@ -10,22 +10,29 @@ import { meta, html } from "./README.md";
 
 # Getting started
 
-It uses regular Parcel plugin system, so you only have to install the plugin in your project. 
+It uses regular [Parcel plugin system](https://parceljs.org/plugins.html), so you only have to install the plugin in your project. 
 
+If you are using [yarn](https://yarnpkg.com/):
 ```bash
-yarn add parcel-plugin-markdown-it -D
+yarn add parcel-plugin-markdown-it --dev
 ```
 
-If you are using npm:
+If you are using [npm](https://www.npmjs.com/):
 ```bash
-npm install parcel-plugin-markdown-it --save
+npm install parcel-plugin-markdown-it --save-dev
 ```
 
-This command just installs parcel-plugin-markdown-it in your node_modules folder and adds the development dependency to `package.json`. 
+This command just installs `parcel-plugin-markdown-it` in your `node_modules` folder and adds it to development dependency section in `package.json`:
+
+```json
+"devDependencies": {
+    "parcel-plugin-markdown-it": "^0"
+}
+```
 
 # Simple Example
 
-For this example we will use a README.md with following content:
+For this example we will use a `README.md` with following content:
 
 ```markdown
 ---
@@ -72,7 +79,7 @@ md:
 ```
 
 # Index all Markdown files in a directory
-**This feature is still not working properly until a bug in parcel plugin is fixed.**
+**This feature is still not working properly until https://github.com/parcel-bundler/parcel/issues/112 in ParcelJs is fixed.**
 
 I will explain how this is currently implemented, but this feature most likely will evolve.
 
@@ -87,9 +94,16 @@ for (const post of index) {
         .catch(error => console.error(error));
 }
 ```
-Let's say `index.blog` file content is `/home/my/posts`.
+Let's say `index.blog` file content is as follows:
+```json
+{
+    "title": "My Blog",
+    "postsFolder": "/home/my/posts",
+    "author": "carlosvin@gmail.com"
+}
+```
 
-This code snippet is supposed to lazy load al the Markdown files in `/home/my/posts` and print them to console.
+Following code snippet is supposed to lazy load al the Markdown files in `/home/my/posts` and print them to console.
 
 Expected output:
 ```javascript
@@ -111,3 +125,7 @@ Expected output:
     ...
 ]
 ```
+
+This feature would ease the implementation of a simple static site generator.
+
+When this feature is properly working, I will most likely extend it to support static site generation.
