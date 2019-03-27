@@ -8,6 +8,8 @@ Plugin also reads Markdown metadata and it stores it in a variable named `meta`.
 import { meta, html } from "./README.md";
 ```
 
+[![CircleCI](https://circleci.com/gh/carlosvin/parcel-plugin-markdown-it.svg?style=svg)](https://circleci.com/gh/carlosvin/parcel-plugin-markdown-it)
+
 # Getting started
 
 It uses regular [Parcel plugin system](https://parceljs.org/plugins.html), so you only have to install the plugin in your project. 
