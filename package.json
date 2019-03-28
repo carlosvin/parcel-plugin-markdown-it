@@ -1,20 +1,44 @@
 {
   "name": "parcel-plugin-markdown-it",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Parcel plugin to generate HTML and metadata dictionary from Markdown files",
   "main": "index.js",
-  "author": "carlosvin@gmail.com",
-  "license": "MIT",
+  "author": "Carlos Martin Sanchez <carlosvin@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carlosvin/parcel-plugin-markdown-it.git"
+  },
+  "homepage": "https://github.com/carlosvin/parcel-plugin-markdown-it/blob/master/README.md",
+  "keywords": [
+    "markdown",
+    "md",
+    "parceljs",
+    "parcel",
+    "parcel-plugin",
+    "metadata",
+    "markdown-it"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/carlosvin/parcel-plugin-markdown-it/issues"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha --timeout 50000",
+    "lint": "eslint *.js"
+  },
   "dependencies": {
     "markdown-it": "^8.4.2",
     "markdown-it-meta": "^0.0.1"
   },
   "devDependencies": {
+    "eslint": "^5.15.3",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "mocha": "^5.2.0",
     "parcel-assert-bundle-tree": "^1.0.0",
     "parcel-bundler": "^1.11.0"
-  },
-  "scripts": {
-    "test": "NODE_ENV=test mocha --timeout 50000"
   }
 }
