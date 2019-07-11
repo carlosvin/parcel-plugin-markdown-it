@@ -80,6 +80,24 @@ md:
 }
 ```
 
+# Enable code blocks with syntax highlight
+
+Install the package 'markdown-it-highlight'
+
+```bash
+npm install --save-dev markdown-it-highlight
+```
+
+and include the required css styles in your pages
+
+```javascript
+import 'markdown-it-highlight/dist/index.css'
+```
+
+Now code blocks embedded in markdown document will be rendered with syntax highlight
+
+
+
 # Index all Markdown files in a directory
 **This feature is still not working properly until https://github.com/parcel-bundler/parcel/issues/112 in ParcelJs is fixed.**
 

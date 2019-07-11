@@ -7,11 +7,16 @@ class MarkdownAsset extends Asset {
   constructor (name, pkg, options) {
     super(name, pkg, options)
     this.type = 'js'
-    this.md = new MarkdownIt('default', {
+    var md = new MarkdownIt('default', {
       html: true,
       linkify: true,
       typographer: true
     }).use(Meta)
+    // try loading 'markdown-it-highlight' if available
+    try {
+      md = md.use(require('markdown-it-highlight').default)
+    } catch (e) { }
+    this.md = md
   }
 
   async parse (markdownString) {
