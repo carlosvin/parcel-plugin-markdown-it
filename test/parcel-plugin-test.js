@@ -29,7 +29,7 @@ describe('basic', function () {
     // Compare bundle to expected
     assertBundleTree(bundle, {
       name: 'index.js',
-      assets: ['index.js', 'a-test-file.md', 'b-test-file.md'],
+      assets: ['index.js', 'a-test-file.md', 'b-test-file.md', 'icon48.png'],
       childBundles: [
         {
           type: 'map'

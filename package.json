@@ -27,18 +27,18 @@
     "lint": "eslint *.js test/*js"
   },
   "dependencies": {
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^10.0.0",
     "markdown-it-meta": "^0.0.1"
   },
   "devDependencies": {
-    "eslint": "^5.15.3",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "mocha": "^5.2.0",
-    "parcel-assert-bundle-tree": "^1.0.0",
-    "parcel-bundler": "^1.11.0"
+    "eslint": "^6",
+    "eslint-config-standard": "^14",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-node": "^10",
+    "eslint-plugin-promise": "^4",
+    "eslint-plugin-standard": "^4",
+    "mocha": "^6",
+    "parcel-assert-bundle-tree": "^1",
+    "parcel-bundler": "^1"
   }
 }
