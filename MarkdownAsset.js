@@ -12,10 +12,11 @@ class MarkdownAsset extends Asset {
       linkify: true,
       typographer: true
     }).use(Meta)
-    // try loading 'markdown-it-highlight' if available
     try {
       md = md.use(require('markdown-it-highlight').default)
-    } catch (e) { }
+    } catch (e) {
+      console.info('markdown-it-highlight not available')
+    }
     this.md = md
   }
 
@@ -32,8 +33,8 @@ class MarkdownAsset extends Asset {
         const attrs = new Map(token.attrs)
         const path = attrs.get('src')
         if (path.startsWith('.')) {
-          console.log('Add img: ', path)
-          this.addDependency(attrs.get('src'))
+          console.log('Add img: ', token.attrs)
+          this.addDependency(path)
           this.ast.dirty = true
   
         }
