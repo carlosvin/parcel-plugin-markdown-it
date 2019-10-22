@@ -33,10 +33,8 @@ class MarkdownAsset extends Asset {
         const attrs = new Map(token.attrs)
         const path = attrs.get('src')
         if (path.startsWith('.')) {
-          console.log('Add img: ', token.attrs)
           this.addDependency(path)
           this.ast.dirty = true
-  
         }
       }
       

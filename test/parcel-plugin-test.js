@@ -30,11 +30,7 @@ describe('basic', function () {
     assertBundleTree(bundle, {
       name: 'index.js',
       assets: ['index.js', 'a-test-file.md', 'b-test-file.md', 'icon48.png'],
-      childBundles: [
-        {
-          type: 'map'
-        }
-      ]
+      childBundles: [{type: 'png'}, {type: 'map'}]
     })
   })
 
@@ -60,7 +56,7 @@ describe('basic', function () {
             },
             {
               type: 'js',
-              assets: ['b-test-file.md']
+              assets: ['b-test-file.md', 'icon48.png']
             },
             {
               type: 'map',
