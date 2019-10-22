@@ -21,11 +21,10 @@ class MarkdownAsset extends Asset {
   }
 
   collectDependencies () {
-    this.collectImgs(this.ast.parsed)    
+    this.collectImgs(this.ast.parsed)
   }
 
   collectImgs (tokens) {
-
     for (const token of tokens) {
       if (token.type === 'inline' && token.children !== null && token.children.length > 0) {
         this.collectImgs(token.children)
@@ -37,7 +36,6 @@ class MarkdownAsset extends Asset {
           this.ast.dirty = true
         }
       }
-      
     }
   }
 
