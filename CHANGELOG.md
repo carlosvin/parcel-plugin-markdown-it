@@ -1,3 +1,7 @@
+# [0.1.4] - 2020-09-19
+## Fix
+- Bump dependencies to fix dependencies vulnerabilities.
+
 # [0.1.3] - 2020-03-14
 ## Fix
 - Bump dependencies to fix dependencies vulnerabilities.
