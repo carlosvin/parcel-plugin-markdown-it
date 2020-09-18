@@ -1,6 +1,6 @@
 {
   "name": "parcel-plugin-markdown-it",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Parcel plugin to generate HTML and metadata dictionary from Markdown files",
   "main": "index.js",
   "author": "Carlos Martin Sanchez <carlosvin@gmail.com>",
