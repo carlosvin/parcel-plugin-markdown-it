@@ -27,6 +27,7 @@
     "lint": "eslint *.js test/*js"
   },
   "dependencies": {
+    "caniuse-lite": "^1.0.30001192",
     "markdown-it": "^8.4.2",
     "markdown-it-meta": "^0.0.1"
   },
