@@ -82,16 +82,16 @@ md:
 
 # Enable code blocks with syntax highlight
 
-Install the package 'markdown-it-highlight'
+Install the package 'markdown-it-highlightjs'
 
 ```bash
-npm install --save-dev markdown-it-highlight
+npm install --save-dev markdown-it-highlightjs
 ```
 
 and include the required css styles in your pages
 
 ```javascript
-import 'markdown-it-highlight/dist/index.css'
+import 'highlight.js/styles/default.css'
 ```
 
 Now code blocks embedded in markdown document will be rendered with syntax highlight

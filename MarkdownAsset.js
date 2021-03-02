@@ -12,10 +12,14 @@ class MarkdownAsset extends Asset {
       linkify: true,
       typographer: true
     }).use(Meta)
-    // try loading 'markdown-it-highlight' if available
+    // try loading 'markdown-it-highlightjs' if available
     try {
-      md = md.use(require('markdown-it-highlight').default)
-    } catch (e) { }
+      md = md.use(require('markdown-it-highlightjs'), {})
+    } catch (e) {
+      if (e.code !== 'MODULE_NOT_FOUND') {
+        throw e;
+      }
+    }
     this.md = md
   }
 
