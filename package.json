@@ -1,6 +1,6 @@
 {
   "name": "parcel-plugin-markdown-it",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Parcel plugin to generate HTML and metadata dictionary from Markdown files",
   "main": "index.js",
   "author": "Carlos Martin Sanchez <carlosvin@gmail.com>",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "caniuse-lite": "^1.0.30001192",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^12.0.4",
     "markdown-it-meta": "^0.0.1"
   },
   "devDependencies": {
