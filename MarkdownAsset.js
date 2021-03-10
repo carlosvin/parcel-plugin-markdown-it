@@ -47,7 +47,7 @@ class MarkdownAsset extends Asset {
     return {
       html: html,
       meta: this.md.meta,
-      parsed: this.md.parse(markdownString)
+      parsed: this.md.parse(markdownString, {})
     }
   }
 
