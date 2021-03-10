@@ -23,11 +23,31 @@ class MarkdownAsset extends Asset {
     this.md = md
   }
 
+  collectDependencies () {
+    this.collectImgs(this.ast.parsed)
+  }
+
+  collectImgs (tokens) {
+    for (const token of tokens) {
+      if (token.type === 'inline' && token.children !== null && token.children.length > 0) {
+        this.collectImgs(token.children)
+      } else if (token.type === 'image') {
+        const attrs = new Map(token.attrs)
+        const path = attrs.get('src')
+        if (path.startsWith('.')) {
+          this.addDependency(path)
+          this.ast.dirty = true
+        }
+      }
+    }
+  }
+
   async parse (markdownString) {
     const html = this.md.render(markdownString)
     return {
       html: html,
-      meta: this.md.meta
+      meta: this.md.meta,
+      parsed: this.md.parse(markdownString)
     }
   }
 

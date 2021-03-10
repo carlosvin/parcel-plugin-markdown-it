@@ -1,0 +1,17 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "Example using parcel-plugin-markdown-it",
+  "main": "index.js",
+  "author": "Carlos Martin Sanchez",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "*",
+    "parcel-plugin-markdown-it": "../"
+  }
+}
