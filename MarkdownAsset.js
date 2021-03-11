@@ -32,26 +32,34 @@ class MarkdownAsset extends Asset {
       if (token.type === 'inline' && token.children !== null && token.children.length > 0) {
         this.collectImgs(token.children)
       } else if (token.type === 'image') {
-        const attrs = new Map(token.attrs)
-        const path = attrs.get('src')
-        if (path.startsWith('.')) {
-          this.addDependency(path)
-          this.ast.dirty = true
-        }
+        const attrs = token.attrs.map((attr) => {
+          const [name, value] = attr;
+          if (name === 'src' && value.startsWith('.')) {
+            const newSrc = this.addURLDependency(value);
+            return [name, newSrc];
+          }
+          return attr;
+        });
+        token.attrs = attrs;
       }
     }
   }
 
   async parse (markdownString) {
-    const html = this.md.render(markdownString)
+    const env = {};
+    const parsed = this.md.parse(markdownString, env);
+
     return {
-      html: html,
       meta: this.md.meta,
-      parsed: this.md.parse(markdownString, {})
+      parsed,
+      env
     }
   }
 
   generate () {
+    const html = this.md.renderer.render(this.ast.parsed, this.md.options, this.ast.env);
+    this.ast.html = html;
+
     return serializeObject(
       this.ast,
       this.options.minify && !this.options.scopeHoist
