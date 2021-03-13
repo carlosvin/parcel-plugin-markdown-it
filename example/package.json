@@ -8,10 +8,12 @@
   "private": true,
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "serve": "http-server dist"
   },
   "devDependencies": {
-    "parcel-bundler": "*",
+    "http-server": "0.12.3",
+    "parcel-bundler": "1.12.3",
     "parcel-plugin-markdown-it": "../"
   }
 }

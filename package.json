@@ -1,6 +1,6 @@
 {
   "name": "parcel-plugin-markdown-it",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "description": "Parcel plugin to generate HTML and metadata dictionary from Markdown files",
   "main": "index.js",
   "author": "Carlos Martin Sanchez <carlosvin@gmail.com>",
@@ -39,7 +39,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "mocha": "^5.2.0",
     "parcel-assert-bundle-tree": "^1.0.0",
-    "parcel-bundler": "^1.12.4",
+    "parcel-bundler": "1.12.3",
     "serialize-to-js": "^3.0.2"
   }
 }
