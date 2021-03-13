@@ -4061,7 +4061,7 @@ parcel-assert-bundle-tree@^1.0.0:
   resolved "https://registry.yarnpkg.com/parcel-assert-bundle-tree/-/parcel-assert-bundle-tree-1.0.0.tgz#d10a1bff6fb690cdbda5201cae216366c23c837e"
   integrity sha512-PpEArwgoZGRCDdHLxFpjs4Rl5X8dAL0SUQ8uqsXVSJMDmbSbha1P28X2kWaTu2RVfwSswv7MSF0NA/qzn0H/IA==
 
-parcel-bundler@^1.12.4:
+parcel-bundler@^1.12.3:
   version "1.12.4"
   resolved "https://registry.yarnpkg.com/parcel-bundler/-/parcel-bundler-1.12.4.tgz#31223f4ab4d00323a109fce28d5e46775409a9ee"
   integrity sha512-G+iZGGiPEXcRzw0fiRxWYCKxdt/F7l9a0xkiU4XbcVRJCSlBnioWEwJMutOCCpoQmaQtjB4RBHDGIHN85AIhLQ==
