@@ -17,7 +17,7 @@ class MarkdownAsset extends Asset {
       md = md.use(require('markdown-it-highlightjs'), {})
     } catch (e) {
       if (e.code !== 'MODULE_NOT_FOUND') {
-        throw e;
+        throw e
       }
     }
     this.md = md
@@ -33,21 +33,21 @@ class MarkdownAsset extends Asset {
         this.collectImgs(token.children)
       } else if (token.type === 'image') {
         const attrs = token.attrs.map((attr) => {
-          const [name, value] = attr;
+          const [name, value] = attr
           if (name === 'src' && value.startsWith('.')) {
-            const newSrc = this.addURLDependency(value);
-            return [name, newSrc];
+            const newSrc = this.addURLDependency(value)
+            return [name, newSrc]
           }
-          return attr;
-        });
-        token.attrs = attrs;
+          return attr
+        })
+        token.attrs = attrs
       }
     }
   }
 
   async parse (markdownString) {
-    const env = {};
-    const parsed = this.md.parse(markdownString, env);
+    const env = {}
+    const parsed = this.md.parse(markdownString, env)
 
     return {
       meta: this.md.meta,
@@ -57,8 +57,8 @@ class MarkdownAsset extends Asset {
   }
 
   generate () {
-    const html = this.md.renderer.render(this.ast.parsed, this.md.options, this.ast.env);
-    this.ast.html = html;
+    const html = this.md.renderer.render(this.ast.parsed, this.md.options, this.ast.env)
+    this.ast.html = html
 
     return serializeObject(
       this.ast,
