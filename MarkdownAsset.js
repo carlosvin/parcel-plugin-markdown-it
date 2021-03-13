@@ -12,22 +12,54 @@ class MarkdownAsset extends Asset {
       linkify: true,
       typographer: true
     }).use(Meta)
-    // try loading 'markdown-it-highlight' if available
+    // try loading 'markdown-it-highlightjs' if available
     try {
-      md = md.use(require('markdown-it-highlight').default)
-    } catch (e) { }
+      md = md.use(require('markdown-it-highlightjs'), {})
+    } catch (e) {
+      if (e.code !== 'MODULE_NOT_FOUND') {
+        throw e
+      }
+    }
     this.md = md
   }
 
+  collectDependencies () {
+    this.collectImgs(this.ast.parsed)
+  }
+
+  collectImgs (tokens) {
+    for (const token of tokens) {
+      if (token.type === 'inline' && token.children !== null && token.children.length > 0) {
+        this.collectImgs(token.children)
+      } else if (token.type === 'image') {
+        const attrs = token.attrs.map((attr) => {
+          const [name, value] = attr
+          if (name === 'src' && value.startsWith('.')) {
+            const newSrc = this.addURLDependency(value)
+            return [name, newSrc]
+          }
+          return attr
+        })
+        token.attrs = attrs
+      }
+    }
+  }
+
   async parse (markdownString) {
-    const html = this.md.render(markdownString)
+    const env = {}
+    const parsed = this.md.parse(markdownString, env)
+
     return {
-      html: html,
-      meta: this.md.meta
+      meta: this.md.meta,
+      parsed,
+      env
     }
   }
 
   generate () {
+    const html = this.md.renderer.render(this.ast.parsed, this.md.options, this.ast.env)
+    this.ast.html = html
+
     return serializeObject(
       this.ast,
       this.options.minify && !this.options.scopeHoist
