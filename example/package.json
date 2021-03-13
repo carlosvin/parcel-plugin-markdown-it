@@ -9,11 +9,11 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "serve": "http-server dist"
+    "serve": "serve dist"
   },
   "devDependencies": {
-    "http-server": "0.12.3",
     "parcel-bundler": "1.12.3",
-    "parcel-plugin-markdown-it": "../"
+    "parcel-plugin-markdown-it": "../",
+    "serve": "^11.3.2"
   }
 }
